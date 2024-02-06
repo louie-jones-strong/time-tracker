@@ -1,12 +1,14 @@
 #include <iostream>
 
-int main() {
-    std::cout << "Welcome to Time Tracker!" << std::endl;
-    // Add your main application logic here
+using namespace std;
 
-    std::cout << "Press Enter to exit";
-    // wait for user to press enter
-    std::cin.get();
+int main() {
+    printf("Welcome to Time Tracker!\n");
+
+    printf("Press Enter to exit");
+    cin.get();
+
+    printf("Goodbye!\n");
 
     return 0;
 }
