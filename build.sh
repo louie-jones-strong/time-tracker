@@ -1,0 +1,1 @@
+g++ -o TimeTracker main.cpp
