@@ -10,10 +10,10 @@ class FocusedWindowEventCreator : public IEventCreator
 private:
 protected:
 HWND LastFocusedWindow;
+string LastTitle = "";
 
 public:
 	FocusedWindowEventCreator(IStore *store);
-	~FocusedWindowEventCreator();
 	void Update() override;
 };
 
@@ -22,10 +22,6 @@ FocusedWindowEventCreator::FocusedWindowEventCreator(IStore *store) : IEventCrea
 	LastFocusedWindow = NULL;
 	// printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s\n",
 	// 	   "Foreground", "IsIconic", "IsFocused", "right", "left", "top", "bottom", "width", "height", "Title");
-}
-
-FocusedWindowEventCreator::~FocusedWindowEventCreator()
-{
 }
 
 string GetWindowData(HWND window)
@@ -94,21 +90,16 @@ void FindWindows()
 void FocusedWindowEventCreator::Update()
 {
 	auto foreground = GetForegroundWindow();
-	if (foreground == LastFocusedWindow)
-	{
-		return;
-	}
-
-	LastFocusedWindow = foreground;
-
 	auto title = GetWindowData(foreground);
-	if (title.empty())
+	if (title == LastTitle && foreground == LastFocusedWindow)
 	{
 		return;
 	}
 
 	auto event = new Event();
 	event->Name = title;
-
 	StoreEvent(event);
+
+	LastTitle = title;
+	LastFocusedWindow = foreground;
 }

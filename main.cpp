@@ -3,12 +3,14 @@
 #include <vector>
 #include "src/EventCreators/FocusedWindowEventCreator.cpp"
 #include "src/Stores/ConsoleStore.cpp"
+#include "src/Stores/TableFileStore.cpp"
 
 using namespace std;
 
 vector<IEventCreator *> CreateEventCreators()
 {
-    auto store = new ConsoleStore();
+    // auto store = new ConsoleStore();
+    auto store = new TableFileStore("tracked.tsv", "\t");
 
     vector<IEventCreator *> eventCreators;
     eventCreators.push_back(new FocusedWindowEventCreator(store));
