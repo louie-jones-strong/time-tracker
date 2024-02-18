@@ -41,8 +41,9 @@ void TableFileStore::AddEvent(Event *event)
 	File.open(FilePath, ios::app);
 
 	// write the event to the file
-	auto startTime = ctime(&event->StartTime);
-	auto endTime = ctime(&event->EndTime);
+	auto startTime = event->TimeToString(event->StartTime);
+	auto endTime = event->TimeToString(event->EndTime);
+
 	auto row = CreateRow({startTime, endTime, event->Name});
 	File << row;
 	File.close();

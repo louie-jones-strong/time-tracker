@@ -24,6 +24,16 @@ public:
 	// links
 
 	Event();
+
+	string TimeToString(time_t time)
+	{
+		string output = asctime(localtime(&time));
+
+		// remove the newline
+		output.pop_back();
+
+		return output;
+	}
 };
 
 Event::Event()

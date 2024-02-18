@@ -20,8 +20,6 @@ public:
 FocusedWindowEventCreator::FocusedWindowEventCreator(IStore *store) : IEventCreator(store)
 {
 	LastFocusedWindow = NULL;
-	// printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %s\n",
-	// 	   "Foreground", "IsIconic", "IsFocused", "right", "left", "top", "bottom", "width", "height", "Title");
 }
 
 string GetWindowData(HWND window)
@@ -41,26 +39,8 @@ string GetWindowData(HWND window)
 	auto isIconic = IsIconic(window);
 	bool isFocused = (GetFocus() == window);
 
-	// if (!isWindow || !isWindowVisible || !isWindowEnabled || !isTitleValid)
-	// {
-	// 	return;
-	// }
-
 	signed int width = rect.right - rect.left;
 	signed int height = rect.bottom - rect.top;
-
-	// print the window data in a tabular format
-	// printf("%-10s %-10s %-10s %-10d %-10d %-10d %-10d %-10d %-10d %s\n",
-	// 	   isForegroundWindow ? "Yes" : "No",
-	// 	   isIconic ? "Yes" : "No",
-	// 	   isFocused ? "Yes" : "No",
-	// 	   rect.right,
-	// 	   rect.left,
-	// 	   rect.top,
-	// 	   rect.bottom,
-	// 	   width,
-	// 	   height,
-	// 	   title);
 
 	return title;
 }
