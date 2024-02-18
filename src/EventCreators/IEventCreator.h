@@ -6,7 +6,7 @@ class IEventCreator
 private:
 protected:
 	IStore *Store;
-	virtual void CreateEvent();
+	virtual void StoreEvent(Event *event);
 
 public:
 	IEventCreator(IStore *store);
@@ -25,7 +25,7 @@ IEventCreator::~IEventCreator()
 {
 }
 
-void IEventCreator::CreateEvent()
+void IEventCreator::StoreEvent(Event *event)
 {
-	// printf("Creating event\n");
+	Store->AddEvent(event);
 }

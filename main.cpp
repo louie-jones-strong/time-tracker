@@ -36,12 +36,5 @@ int main()
         Sleep(100);
     }
 
-    // FindWindows();
-
-    // printf("Press Enter to exit");
-    // cin.get();
-
-    printf("Goodbye!\n");
-
     return 0;
 }
