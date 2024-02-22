@@ -1,11 +1,12 @@
 #include <windows.h>
 #include <iostream>
 #include <vector>
-#include "src/EventCreators/FocusedWindowEventCreator.cpp"
-#include "src/Stores/ConsoleStore.cpp"
-#include "src/Stores/TableFileStore.cpp"
+#include "src/Core/EventCreators/FocusedWindowEventCreator.cpp"
+#include "src/Core/Stores/ConsoleStore.cpp"
+#include "src/Core/Stores/TableFileStore.cpp"
 
 using namespace std;
+using namespace TimeTracker::Core;
 
 vector<IEventCreator *> CreateEventCreators()
 {
