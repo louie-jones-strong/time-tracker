@@ -27,7 +27,7 @@ void UpdateEventCreators(vector<IEventCreator *> eventCreators)
 
 int main()
 {
-    printf("Welcome to Time Tracker!\n");
+    printf("Time Tracker running...\n");
 
     printf("\n");
     auto eventCreators = CreateEventCreators();

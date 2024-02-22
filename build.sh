@@ -1,8 +1,3 @@
-clear
-
-g++ -o TimeTracker main.cpp
+g++ -o TimeTracker main.cpp -static
 
 echo "Build complete"
-
-# run the program
-./TimeTracker
